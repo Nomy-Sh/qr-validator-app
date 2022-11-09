@@ -18,6 +18,12 @@ class QrCodesController < QrCodesBaseController
 
   def history; end
 
+
+
+  def admin_history; end
+  def entry_page; end
+
+
   def settings; end
 
   def qr_approve_ticket
