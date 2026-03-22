@@ -1,0 +1,33 @@
+<% if !@user_history["data"].blank? %>
+  <% for items in @user_history["data"].reverse() %>
+      
+      <%= tag.div class:"card mb-1" do %>
+        <%= tag.div class:"card-body p-0" do %>
+          <%= tag.li class:"list-group-item" do %> 
+            <%= tag.div class:"row" do %>
+              <%= tag.div class:"col-auto" do %>
+                <%= tag.div class:"card shadow-none" do %>
+                  <%= tag.div class:"card-body p-0" do %>
+                    <%= image_tag "#{@img_mapping[items['status_cd']]}" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <%= tag.div class:"col align-self-center ps-0" do %>
+                <%= tag.p(items["scan_value"], class:"#{@text_color[items['status_cd']]} size-10 mb-0 qr-value-reduced") %>
+                <%= tag.p(items["scan_value_name"], class:"size-12 mt-2") %>
+              <% end %>
+              <%= tag.div class:"col align-self-center text-end" do %>
+                <%= tag.p(@status_msg[items["status_cd".to_s]], class:" #{@text_color[items['status_cd']]} size-12 mb-0") %>
+                <%= tag.p(items["scanned_at"].to_time.strftime("%r"), class:"text-secondary text-muted size-10 mb-0") %>
+                <%= tag.p(items["scanned_at"].to_time.strftime("%d/%m/%y"), class:"text-secondary text-muted size-10 mb-0") %>
+                <%= tag.p(items["scanned_by"], class:"text-muted size-10 mb-0") %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+  <% end %>
+<% else %>
+  
+<% end %>
