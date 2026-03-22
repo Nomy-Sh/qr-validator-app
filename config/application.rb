@@ -10,7 +10,7 @@ module QrScannerApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    config.time_zone = "New Delhi"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -18,5 +18,11 @@ module QrScannerApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    #config.serviceworker.routes.draw do
+    #  match "/serviceworker.js" => "nested/directory/serviceworker.js"
+    #end
+
   end
 end
+

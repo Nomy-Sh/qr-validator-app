@@ -1,0 +1,109 @@
+
+<%= render 'home/google_analytics' %>
+
+<!-- Begin page -->
+<main class="h-100 theme-light-radial-gradient">
+    <!-- main page content -->
+    <div class="main-container container">
+        <div class="row" style="width: 100%, display: block;" >
+            
+            <h2 class="text-center">Settings</h2>
+
+    <div class="row mt-2">
+        <div class="btns-cont">
+            <input type="radio" class="btn-check" name="options-outlined" id="all-history" onclick=sendFilterRequest('all-history') autocomplete="on" checked>
+            <label class="btn btn-outline-primary" for="all-history">All</label> 
+
+            <input type="radio" class="btn-check" name="options-outlined" id="success-history" autocomplete="off" >
+            <label class="btn btn-outline-success" for="success-history">Success</label>
+
+            <input type="radio" class="btn-check" name="options-outlined" id="invalid-history" autocomplete="off">
+            <label class="btn btn-outline-warning" for="invalid-history">Invalid</label>
+
+            <input type="radio" class="btn-check" name="options-outlined" id="error-history" autocomplete="off">
+             <label class="btn btn-outline-danger" for="error-history">Failed</label>
+        </div> 
+    </div>
+
+
+
+        </div>
+    <!-- People -->
+</main>
+<!-- Page ends-->
+
+<script type="text/javascript">
+  function sendFilterRequest(filter){
+    console.log(filter)
+
+</script>
+
+<style>
+.row{
+  overflow: hidden;
+}
+
+.btns-cont{
+  width: 100%;
+  #display: block;
+  overflow-x: scroll;
+  white-space:nowrap;
+}
+
+.btns-cont * {
+    display: inline-block;
+    vertical-align:top;
+    #width: 90px;
+    margin-right:20px;
+    white-space:normal;
+    scrollbar-color: whitesmoke;
+}
+</style>
+
+
+<!-- Footer -->
+<footer class="footer footer-squared">
+    <div class="container">
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item">
+                <%= link_to  profile_path, class: "nav-link", style:"text-decoration: none;" do %>
+                    <span>
+                        <i class="nav-icon bi bi-person-circle"></i>
+                        <span class="nav-text">Profile</span>
+                    </span>
+                <% end %>
+
+            </li>
+
+            <li class="nav-item">
+                <a class= "nav-link", style="text-decoration: none;" onclick=changePage("<%= scanner_url %>")>
+                    <span class="">
+                        <i class="bi bi-camera-fill"></i>
+                        <span class="nav-text">Scan</span>
+                    </span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                  <%= link_to  history_path, class: "nav-link", style:"text-decoration: none;" do %>
+                    <span>
+                        <i class="nav-icon bi bi-list-task"></i>
+                        <span class="nav-text">History</span>
+                    </span>
+                  <% end %>
+                
+            </li>
+
+            <li class="nav-item square-footerbtn">
+                <%= link_to  settings_path, class: "nav-link", style:"text-decoration: none;" do %>
+                    <span class="bg-theme">
+                        <i class="bi bi-gear-fill size-22"></i>
+                        <span class="nav-text">Settings</span>
+                    </span>
+                <% end %>
+            </li>
+
+        </ul>
+    </div>
+</footer>
+<!-- Footer ends-->

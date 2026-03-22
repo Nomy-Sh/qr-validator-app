@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>QrScannerApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <title>Ticket Scanner v1.0</title>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= render 'home/header' %>
   </head>
 
   <body>
+
+    <header>
+      <%= render 'layouts/alerts' %>
+    </header>
+
+    <% if current_user %>
+    <% end %>
+
     <%= yield %>
-  </body>
+
+
+
+    <%= render 'home/footer' %>
+</body>
+
 </html>

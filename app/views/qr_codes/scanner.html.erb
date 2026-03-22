@@ -1,0 +1,124 @@
+
+<%= render 'home/google_analytics' %>
+<!-- Begin page -->
+<main class="h-100 theme-light-radial-gradient">
+
+    <!-- main page content -->
+    <div class="main-container container">
+        <!-- banner -->
+        <div class="row">
+            <div class="col-12 mb-3 text-center ticket-scan-status"> <!-- Ticket scan status-->
+                <p class="mb-3 fw-light" id="scan_status"></p>
+
+                <div class="row mb-3" id="qr_container">
+                        <%= video_tag("", id: "qr_vid_el") %>
+                </div>
+                <p class="text-secondary mb-3" id="result"></p>
+            </div>
+        </div>
+
+        <div id="sourceSelectPanel" style="display: none">
+          <label for="sourceSelect">Change video source:</label>
+          <select id="sourceSelect" style="max-width:400px">
+          </select>
+        </div>
+
+        <div style="display: none">
+          <select id="decoding-style" size="1">
+            <option value="once" selected>Decode once</option>
+            <option value="continuously">Decode continuously</option>
+          </select>
+        </div>
+
+
+        <!-- Main Screen QR content -->
+        <div class=" buttons-container">
+
+            <div class="col-4 col-md-3 col-sm-2 text-center mb-4" id="scan-cancel-btn" style="display: none;">
+                <span class="avatar avatar-80 rounded-6 mb-2 shadow-sm bg-white text-color-theme">
+                    <i class="bi bi-x-square scan-fun-btn h2" id="rejectButton"></i> 
+                </span>
+                <h6>Cancel</h6>
+                <!-- <button type="hidden" id="resetButton"></button> -->
+            </div>
+
+            <div class="col-4 col-md-3 col-sm-2 text-center mb-4" id="scan-scan_again-btn">
+                <span class="avatar avatar-80 rounded-6 mb-2 shadow-sm bg-white text-color-theme">
+                    <i class="bi bi-qr-code-scan scan-fun-btn h2" id="startButton"></i>
+                </span>
+                <h6>Scan Again</h6>
+            </div>
+
+            <div class="col-4 col-md-3 col-sm-2 text-center mb-4" id="scan-approve-btn" style="display: none;">
+                <span class="avatar avatar-80 rounded-6 mb-2 shadow-sm bg-white text-color-theme">
+                    <i class="bi bi-check-square scan-fun-btn h2" id="approveButton"></i> 
+                </span>
+                <h6>Approve</h6>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- main page content ends -->
+
+</main>
+<!-- Page ends-->
+
+
+<!-- Footer -->
+<footer class="footer footer-squared">
+    <div class="container">
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item">
+                <%= link_to  profile_path, class: "nav-link", style:"text-decoration: none;" do %>
+                    <span>
+                        <i class="nav-icon bi bi-person-circle"></i>
+                        <span class="nav-text">Profile</span>
+                    </span>
+                <% end %>
+
+            </li>
+
+            <li class="nav-item square-footerbtn">
+                <a class= "nav-link", style="text-decoration: none;" onclick=changePage("<%= scanner_url %>")>
+                    <span  class="bg-theme">
+                        <i class="bi bi-camera-fill size-22"></i>
+                        <span class="nav-text">Scan</span>
+                    </span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                  <%= link_to  history_path, class: "nav-link", style:"text-decoration: none;" do %>
+                    <span>
+                        <i class="nav-icon bi bi-list-task"></i>
+                        <span class="nav-text">History</span>
+                    </span>
+                  <% end %>
+                
+            </li>
+
+            <li class="nav-item">
+                <%= link_to  settings_path, class: "nav-link", style:"text-decoration: none;" do %>
+                    <span>
+                        <i class="nav-icon bi bi-gear-fill"></i>
+                        <span class="nav-text">Settings</span>
+                    </span>
+                <% end %>
+            </li>
+
+        </ul>
+    </div>
+</footer>
+<!-- Footer ends-->
+
+<%= render 'qr_codes/scanner_js' %>
+
+<style>
+    #result{
+        max-width: 300px;
+        max-height: 25px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+</style>

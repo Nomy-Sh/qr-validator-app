@@ -1,0 +1,116 @@
+
+<%= render 'home/google_analytics' %>
+ <!-- Begin page -->
+<main class="h-100 theme-light-radial-gradient">
+    <!-- Header ends -->
+    <!-- main page content -->
+    <div class="main-container container">
+        <div class="row" style="width: 100%, display: block;" >
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <input type="button" value="Logout" class="btn btn-primary mt-55", onclick="confirmLogOut()" style="width: 100px; display: block; margin: -10px 0 30px 0; float: right; clear: left;">
+
+                <div class="card mb-4 shadow-sm p-2 bg-theme" style="float: none; clear: both;">
+                    <div class="card-body text-center shadow-sm rounded-6 bg-white text-dark ">
+                        <div class="row align-items-center ">
+                            <a href="profile.html" class="col-auto mx-auto">
+                                <div class="card mb-3">
+                                    <div class="card-body p-0">
+                                        <figure class="avatar avatar-100 mx-auto rounded-6">
+                                            <%= image_tag("user1.jpg") %>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <h6 class="card-title mb-1 text-color-theme text-center">
+                          <%= user.name %>
+                        </h6>
+                        <h6 class="card-title mb-1 text-color-theme text-center">
+                          <%= user.email %>
+                        </h6>
+                        <p class="text-small text-secondary small">User</p>
+                    </div>
+                </div>
+                 
+               
+            </div>
+        </div>
+        <!-- People -->
+</main>
+<!-- Page ends-->
+
+
+
+<!-- Footer -->
+<footer class="footer footer-squared">
+    <div class="container">
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item square-footerbtn">
+                <%= link_to  profile_path, class: "nav-link", style:"text-decoration: none;" do %>
+                    <span class="bg-theme">
+                        <i class="bi bi-person-circle size-22"></i>
+                        <span class="nav-text">Profile</span>
+                    </span>
+                <% end %>
+
+            </li>
+
+            <li class="nav-item">
+                <a class= "nav-link", style="text-decoration: none;" onclick=changePage("<%= scanner_url %>")>
+                    <span class="">
+                        <i class="bi bi-camera-fill"></i>
+                        <span class="nav-text">Scan</span>
+                    </span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                  <%= link_to history_path, class: "nav-link", style:"text-decoration: none;" do %>
+                    <span>
+                        <i class="nav-icon bi bi-list-task"></i>
+                        <span class="nav-text">History</span>
+                    </span>
+                  <% end %>
+                
+            </li>
+
+            <li class="nav-item">
+                <%= link_to settings_path, class: "nav-link", style:"text-decoration: none;" do %>
+                    <span>
+                        <i class="nav-icon bi bi-gear-fill"></i>
+                        <span class="nav-text">Settings</span>
+                    </span>
+                <% end %>
+            </li>
+
+        </ul>
+    </div>
+</footer>
+<!-- Footer ends-->
+
+
+<script type="text/javascript">
+    function confirmLogOut(){
+
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You will be Logged Out !",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirm'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Success',
+              'Logged Out Successful!',
+              'success',
+              changePage('<%= logout_url %>')
+            )
+          }
+        })
+
+    }
+
+</script>
